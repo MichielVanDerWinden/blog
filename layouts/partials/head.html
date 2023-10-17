@@ -1,204 +1,39 @@
 <head>
-  <title>
-    {{ .Title }}
-  </title>
+    {{- partial "meta/main.html" . }}
+    {{- hugo.Generator }}
 
-  <!-- Meta -->
-  <meta charset="utf-8" />
-  {{- hugo.Generator -}}
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="author" content="{{ .Site.Params.author }}" />
-  <meta
-    name="description"
-    content="{{ if .Params.description }}
-      {{- .Params.description -}}
-    {{ else }}
-      {{- .Site.Params.description -}}
-    {{ end }}"
-  />
-  {{ if .Params.redirectUrl }}
-    <meta http-equiv="refresh" content="1; url={{ .Params.redirectUrl }}" />
-  {{ end }}
-  {{- if .Site.Params.googleSiteVerify }}
-    <meta name="google-site-verification" content="{{ .Site.Params.googleSiteVerify }}" />
-  {{- end -}}
+    {{/* Canonical link, RSS */}}
 
+    <link rel="canonical" href="{{ .Permalink }}">
+    {{- with .OutputFormats.Get "RSS" }}
+    <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}">
+    <link href="{{ .RelPermalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}">
+    {{- end }}
 
-  <!-- CSS -->
-  {{ if eq .Site.Language.LanguageDirection "rtl" }}
-    {{ $sassTemplate := resources.Get "scss/anatole.rtl.scss" }}
-    {{ $style := $sassTemplate | resources.ExecuteAsTemplate "scss/main.rtl.scss" . | resources.ToCSS | resources.Minify | resources.Fingerprint }}
-    <link
-      rel="stylesheet"
-      href="{{ $style.RelPermalink }}"
-      integrity="{{ $style.Data.Integrity }}"
-      crossorigin="anonymous"
-      type="text/css"
-    />
-  {{ else }}
-    {{ $sassTemplate := resources.Get "scss/anatole.scss" }}
-    {{ $style := $sassTemplate | resources.ExecuteAsTemplate "scss/main.scss" . | resources.ToCSS | resources.Minify | resources.Fingerprint }}
-    <link
-      rel="stylesheet"
-      href="{{ $style.RelPermalink }}"
-      integrity="{{ $style.Data.Integrity }}"
-      crossorigin="anonymous"
-      type="text/css"
-    />
-  {{ end }}
+    {{- /* Styles */ -}}
 
-  {{ $markupHighlightStyle := resources.Get "css/markupHighlight.css" | resources.Minify | resources.Fingerprint }}
-  <link
-    rel="stylesheet"
-    href="{{ $markupHighlightStyle.RelPermalink }}"
-    integrity="{{ $markupHighlightStyle.Data.Integrity }}"
-    crossorigin="anonymous"
-    type="text/css"
-  />
-  {{ range .Site.Params.customCss }}
-    {{ $minstyles := resources.Get . }}
-    {{ $styles := $minstyles | resources.Minify | resources.Fingerprint }}
-    <link
-      rel="stylesheet"
-      href="{{ $styles.RelPermalink }}"
-      integrity="{{ $styles.Data.Integrity }}"
-      crossorigin="anonymous"
-      media="screen"
-    />
-  {{ end }}
-  {{ $style := resources.Get "fontawesome/css/fontawesome.min.css" | resources.Fingerprint }}
-  <link
-    rel="stylesheet"
-    href="{{ $style.RelPermalink }}"
-    integrity="{{ $style.Data.Integrity }}"
-    crossorigin="anonymous"
-    type="text/css"
-  />
-  {{ $style := resources.Get "fontawesome/css/solid.min.css" | resources.Fingerprint }}
-  <link
-    rel="stylesheet"
-    href="{{ $style.RelPermalink }}"
-    integrity="{{ $style.Data.Integrity }}"
-    crossorigin="anonymous"
-    type="text/css"
-  />
-  {{ $style := resources.Get "fontawesome/css/regular.min.css" | resources.Fingerprint }}
-  <link
-    rel="stylesheet"
-    href="{{ $style.RelPermalink }}"
-    integrity="{{ $style.Data.Integrity }}"
-    crossorigin="anonymous"
-    type="text/css"
-  />
-  {{ $style := resources.Get "fontawesome/css/brands.min.css" | resources.Fingerprint }}
-  <link
-    rel="stylesheet"
-    href="{{ $style.RelPermalink }}"
-    integrity="{{ $style.Data.Integrity }}"
-    crossorigin="anonymous"
-    type="text/css"
-  />
-  {{ if .Params.redirectUrl }}
-    {{ $style := resources.Get "css/spinner.css" | resources.Minify | resources.Fingerprint }}
-    <link
-      rel="stylesheet"
-      href="{{ $style.RelPermalink }}"
-      integrity="{{ $style.Data.Integrity }}"
-      crossorigin="anonymous"
-      type="text/css"
-    />
-  {{- end -}}
-  {{ if .Site.Params.googleFonts }}
-    {{ $baseUrl := "https://fonts.googleapis.com/css2?family=" }}
-    {{ $fontParam := delimit .Site.Params.googleFonts "&family=" }}
-    {{ $url := printf "%s" "&display=swap" | printf "%s%s" $fontParam | printf "%s%s" $baseUrl | printf "%s" }}
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="{{ $url }}" rel="stylesheet" />
-  {{- end -}}
+    {{- $style := resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "style.scss" . | toCSS (dict "targetPath" "style.css") | minify | fingerprint }}
+    <link href="{{ $style.RelPermalink }}" rel="stylesheet">
+    {{- $code_syntax_highlight_css := resources.Get "code-highlight.css" | minify | fingerprint }}
+    <link href="{{ $code_syntax_highlight_css.RelPermalink }}" rel="stylesheet">
 
+    {{/* Favicons */}}
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ (resources.Get "icons/apple-touch-icon.png").RelPermalink }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ (resources.Get "icons/favicon-32x32.png").RelPermalink }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ (resources.Get "icons/favicon-16x16.png").RelPermalink }}">
+    <link rel="mask-icon" href="{{ (resources.Get "icons/safari-pinned-tab.svg").RelPermalink }}">
+    <link rel="shortcut icon" href="{{ (resources.Get "icons/favicon.ico" | resources.Copy "favicon.ico").RelPermalink }}">
 
-  <!-- Favicons -->
-  <link rel="shortcut icon" href="{{ .Site.Params.favicon | relURL }}favicon.ico" type="image/x-icon" />
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ .Site.Params.favicon | relURL }}apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ .Site.Params.favicon | relURL }}favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ .Site.Params.favicon | relURL }}favicon-16x16.png" />
+    {{- partial "webmanifest.html" . -}}
+    {{- partial "browserconfig.html" . -}}
 
-  <link rel="canonical" href="{{ .Permalink }}" />
+    <meta name="theme-color" content="{{ .Site.Params.webmanifest.theme_color | default "#434648" }}">
 
-  <!-- RSS -->
-  {{ with .OutputFormats.Get "rss" -}}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
-  {{ end -}}
+    {{/* SVG favicon for the modern web */}}
+    <link rel="icon" type="image/svg+xml" href="{{ (resources.Get "icons/favicon.svg").RelPermalink }}">
 
+    {{/* Katex support (enabled on specific pages). See 'helpers/katex.html' for more info. */}}
 
-  <!-- JavaScript -->
-  {{ $anatoleHeader := resources.Get "js/anatole-header.js" }}
-  {{ $secureHeaderJS := $anatoleHeader |  resources.Minify | resources.Fingerprint }}
-  <script
-    type="text/javascript"
-    src="{{ $secureHeaderJS.RelPermalink }}"
-    integrity="{{ $secureHeaderJS.Data.Integrity }}"
-    crossorigin="anonymous"
-  ></script>
+    {{- if or .Params.math .Site.Params.math }}{{ partial "helpers/katex.html" . -}}{{- end -}}
 
-  {{ if not .Site.Params.disableThemeSwitcher }}
-    {{ $anatoleThemeSwitcher := resources.Get "js/anatole-theme-switcher.js" }}
-    {{ $secureThemeSwitcherJS := $anatoleThemeSwitcher |  resources.Minify | resources.Fingerprint }}
-    <script
-      type="text/javascript"
-      src="{{ $secureThemeSwitcherJS.RelPermalink }}"
-      integrity="{{ $secureThemeSwitcherJS.Data.Integrity }}"
-      crossorigin="anonymous"
-    ></script>
-  {{ end }}
-
-  {{- $js := "" -}}
-  {{- range .Site.Params.customJs -}}
-    {{- if or (in . "http://") (in . "https://") -}}
-      <script src="{{ . | relURL }}"></script>
-    {{- else -}}
-      {{- $customJS := resources.Get . -}}
-      {{- if $customJS -}}
-        {{- if eq $js "" -}}
-          {{- $js = $customJS -}}
-        {{- else -}}
-          {{- $js = slice $js $customJS | resources.Concat "js/custom.js" -}}
-        {{- end -}}
-
-      {{- end -}}
-
-    {{- end -}}
-
-  {{- end -}}
-
-  {{- if ne $js "" -}}
-    {{- $secureJS := $js |  resources.Minify | resources.Fingerprint -}}
-    <script
-      type="text/javascript"
-      src="{{ $secureJS.RelPermalink }}"
-      integrity="{{ $secureJS.Data.Integrity }}"
-      crossorigin="anonymous"
-    ></script>
-  {{- end -}}
-
-  {{ if and hugo.IsProduction .Site.Params.plausibleAnalytics .Site.Params.plausibleAnalytics.domain }}
-    {{- partial "analytics/plausible" . -}}
-  {{ end }}
-
-  {{ if and hugo.IsProduction .Site.Params.umami.serverURL .Site.Params.umami.id }}
-    {{- partial "analytics/umami" . -}}
-  {{ end }}
-
-
-  <!-- Twitter Cards -->
-  {{ template "_internal/twitter_cards.html" . }}
-
-
-  <!-- Open Graph -->
-  {{ template "_internal/opengraph.html" . }}
-
-
-  <!-- Schema.org-->
-  {{ partial "schema.html" . }}
 </head>

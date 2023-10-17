@@ -1,45 +1,66 @@
-baseURL = "https://mvdwinden.nl/"
-languageCode = "en-us"
-theme = 'Anatole'
+title = "Michiel van der Winden's blog"
+baseURL = 'https://mvdwinden.nl/'
 
-[params]
-    title = "Michiel van der Winden"
-    profilePicture = "https://avatars.githubusercontent.com/u/7113514?v=4"
-    description = "Ex-Integration Developer gone AWS Cloud Consultant. Loves refactoring and improving performance. Containerizes everything. Writes about stuff he finds interesting."
-    copyright = "2022-{{ YEAR }}"
+# This is what goes in <html lang="">
+languageCode = 'en-us'
 
-    displayMode = "dark"
-    disableThemeSwitcher = true
-    doNotLoadAnimations = true
-    contentratio = 0.75
+theme = "hugo-awesome"
 
-    pygmentsCodeFences = true
-    pygmentsUseClasses = true
-    customCss = ["css/syntax.css", "css/style.css"]
-    disableKinds = ['taxonomy', 'term', 'category']
-    relatedPosts = true
-    numberOfRelatedPosts = 3
-    readMore = true
+# This defines how dates are formatted
+defaultContentLanguage = "en-us"
 
-    [[params.socialIcons]]
-        icon = "fab fa-linkedin"
-        title = "Linkedin"
-        url = "https://www.linkedin.com/in/michiel-van-der-winden-8512325b/"
+# Enable emojis globally
+enableEmoji = true
+ignoreErrors = [
+    "additional-script-loading-error",
+] # ignore error of loading additional scripts.
 
-    [[params.socialIcons]]
-        icon = "fab fa-github"
-        title = "Github"
-        url = "https://github.com/MichielVanDerWinden/"
+# set markup.highlight.noClasses=false to enable code highlight
+[markup]
+[markup.highlight]
+noClasses = false
+[markup.goldmark.renderer]
+unsafe = true
+[markup.tableOfContents]
+startLevel = 2  # ToC starts from H2
+endLevel = 4    # ToC ends at H4
+ordered = false # generates <ul> instead of <ol>
 
 [menu]
-  [[menu.main]]
-  name = "Posts"
-  identifier = "post"
-  weight = 100
-  url = "/"
+# The page reference (pageRef) is useful for menu highlighting
+# When pageRef is set, setting `url` is optional; it will be used as a fallback if the page is not found.
+[[menu.main]]
+pageRef = "posts"
+name = 'Posts'
+url = '/'
+weight = 20
+[[menu.main]]
+pageRef = "about"
+name = 'About'
+url = '/about/'
+weight = 30
 
-  [[menu.main]]
-  name = "About"
-  weight = 200
-  identifier = "about"
-  url = "/about/"
+[params]
+sitename = "Michiel van der Winden's blog"
+defaultColor = "dark"
+description = "Ex-Integration Developer gone AWS Cloud Consultant. Loves refactoring and improving performance. Containerizes everything. Writes about things he finds interesting or funny."
+mainSections = ['posts']
+toc = false
+goToTop = true
+# additionalScripts = ['js/custom.js', 'js/custom-2.js']
+# See https://gohugo.io/functions/format/#hugo-date-and-time-templating-reference for available date formats.
+
+[params.author]
+avatar = "michiel.png" # put the file in assets folder; also ensure that image has same height and width
+# Note: image is not rendered if the resource(avatar image) is not found. No error is displayed.
+intro = "Michiel van der Winden"
+name = "Michiel van der Winden"
+description = "Ex-Integration Developer gone AWS Cloud Consultant. Loves refactoring and improving performance. Containerizes everything. Writes about things he finds interesting or funny."
+
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/MichielVanDerWinden"
+
+[[params.socialIcons]]
+name = "linkedin"
+url = "https://linkedin.com/"

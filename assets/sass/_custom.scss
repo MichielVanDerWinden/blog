@@ -1,0 +1,20 @@
+.author .author-avatar {
+    height: 160px;
+    width: 160px;
+}
+
+html.dark li > code, html.dark p > code {
+    color: goldenrod;
+}
+
+.chroma .cl {
+    color: goldenrod;
+}
+
+.chroma .si, .chroma .s2 {
+    color: #e93a3a !important;
+}
+
+.chroma .nv {
+    color: #11a160;
+}

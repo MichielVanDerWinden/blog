@@ -1,0 +1,45 @@
+baseURL = "https://mvdwinden.nl/"
+languageCode = "en-us"
+theme = 'Anatole'
+
+[params]
+    title = "Michiel van der Winden"
+    profilePicture = "https://avatars.githubusercontent.com/u/7113514?v=4"
+    description = "Ex-Integration Developer gone AWS Cloud Consultant. Loves refactoring and improving performance. Containerizes everything. Writes about stuff he finds interesting."
+    copyright = "2022-{{ YEAR }}"
+
+    displayMode = "dark"
+    disableThemeSwitcher = true
+    doNotLoadAnimations = true
+    contentratio = 0.75
+
+    pygmentsCodeFences = true
+    pygmentsUseClasses = true
+    customCss = ["css/syntax.css", "css/style.css"]
+    disableKinds = ['taxonomy', 'term', 'category']
+    relatedPosts = true
+    numberOfRelatedPosts = 3
+    readMore = true
+
+    [[params.socialIcons]]
+        icon = "fab fa-linkedin"
+        title = "Linkedin"
+        url = "https://www.linkedin.com/in/michiel-van-der-winden-8512325b/"
+
+    [[params.socialIcons]]
+        icon = "fab fa-github"
+        title = "Github"
+        url = "https://github.com/MichielVanDerWinden/"
+
+[menu]
+  [[menu.main]]
+  name = "Posts"
+  identifier = "post"
+  weight = 100
+  url = "/"
+
+  [[menu.main]]
+  name = "About"
+  weight = 200
+  identifier = "about"
+  url = "/about/"

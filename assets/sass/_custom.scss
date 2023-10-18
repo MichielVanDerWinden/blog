@@ -22,3 +22,41 @@ p > code {
 .chroma .nv {
     color: #879300;
 }
+
+.post-meta a.category {
+    background-color: #DDD;
+    color: green;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+html.dark .post-meta a.category {
+    background-color: #2d2d2d;
+    color: #879300;
+}
+
+html.dark .post-meta a.category:hover {
+    color: teal;
+}
+
+.post-meta a.category:hover {
+    color: #879300;
+}
+
+.post-item {
+    margin-top: 10px;
+}
+
+.trigger .trigger-container li a:hover, .post-item .post-item-title a:hover, body .navbar .menu .logo:hover .feather-home {
+    color: #879300;
+}
+
+html.dark .trigger .trigger-container li a:hover, html.dark .post-item .post-item-title a:hover, html.dark body .navbar .menu .logo:hover .feather-home, html.dark .footer_social-icons a:hover svg {
+    color: teal;
+}
+
+html.dark .trigger #mode svg g circle {
+    color: blue;
+}

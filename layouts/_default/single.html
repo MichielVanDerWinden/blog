@@ -1,0 +1,38 @@
+{{ define "main" }}
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">{{ .Title }}</h1>
+                {{ with .Date }} {{ $ISO_time := dateFormat
+                "2006-01-02T15:04:05-07:00" . }}
+                <div class="post-meta">
+                    <time datetime="{{ $ISO_time }}" itemprop="datePublished">
+                        {{ . | time.Format ":date_medium" }}
+                    </time>
+                </div>
+                {{ end }}
+                <div class="post-meta">
+                    {{ range $index, $name := .Params.categories -}} {{ with
+                    site.GetPage (printf "/categories/%s" ($name | urlize )) -}}
+                    <a
+                        class="category"
+                        href="{{ .RelPermalink }}"
+                        title="{{ .Name | markdownify}}"
+                        >{{ .Name | markdownify}}</a
+                    >
+                    {{- end}} {{- end }}
+                </div>
+            </header>
+            {{- if .Site.Params.toc -}} {{ if not (eq .Params.toc false) }}
+            <details class="toc">
+                <summary><b>{{ T "single.table_of_contents" }}</b></summary>
+                {{ .TableOfContents }}
+            </details>
+            {{ end }} {{- end -}}
+            <div class="page-content">{{ .Content }}</div>
+        </article>
+        {{- partial "comments.html" . -}}
+    </main>
+</div>
+{{ end }}

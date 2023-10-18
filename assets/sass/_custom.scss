@@ -7,14 +7,18 @@ html.dark li > code, html.dark p > code {
     color: goldenrod;
 }
 
+p > code {
+    color: red;
+}
+
 .chroma .cl {
     color: goldenrod;
 }
 
 .chroma .si, .chroma .s2 {
-    color: #e93a3a !important;
+    color: #00b37d !important;
 }
 
 .chroma .nv {
-    color: #11a160;
+    color: #879300;
 }

@@ -15,52 +15,47 @@ ignoreErrors = [
     "additional-script-loading-error",
 ] # ignore error of loading additional scripts.
 
-# set markup.highlight.noClasses=false to enable code highlight
 [markup]
-[markup.highlight]
-noClasses = false
-[markup.goldmark.renderer]
-unsafe = true
-[markup.tableOfContents]
-startLevel = 2  # ToC starts from H2
-endLevel = 4    # ToC ends at H4
-ordered = false # generates <ul> instead of <ol>
+    [markup.highlight]
+        noClasses = false
+    [markup.goldmark.renderer]
+        unsafe = true
+    [markup.tableOfContents]
+        startLevel = 2  
+        endLevel = 4    
+        ordered = false
 
 [menu]
-# The page reference (pageRef) is useful for menu highlighting
-# When pageRef is set, setting `url` is optional; it will be used as a fallback if the page is not found.
-[[menu.main]]
-pageRef = "posts"
-name = 'Posts'
-url = '/'
-weight = 20
-[[menu.main]]
-pageRef = "about"
-name = 'About'
-url = '/about/'
-weight = 30
+    [[menu.main]]
+        pageRef = "posts"
+        name = 'Posts'
+        url = '/'
+        weight = 20
+    [[menu.main]]
+        pageRef = "about"
+        name = 'About'
+        url = '/about/'
+        weight = 30
 
 [params]
-sitename = "Michiel van der Winden's blog"
-defaultColor = "dark"
-description = "Ex-Integration Developer gone AWS Cloud Consultant. Loves refactoring and improving performance. Containerizes everything. Writes about things he finds interesting or funny."
-mainSections = ['posts']
-toc = false
-goToTop = true
-# additionalScripts = ['js/custom.js', 'js/custom-2.js']
-# See https://gohugo.io/functions/format/#hugo-date-and-time-templating-reference for available date formats.
+    sitename = "Michiel van der Winden's blog"
+    defaultColor = "dark"
+    description = "Ex-Integration Developer gone AWS Cloud Consultant. Loves refactoring and improving performance. Containerizes everything. Writes about things he finds interesting or funny."
+    mainSections = ['posts']
+    toc = false
+    goToTop = true
 
 [params.author]
-avatar = "michiel.png" # put the file in assets folder; also ensure that image has same height and width
-# Note: image is not rendered if the resource(avatar image) is not found. No error is displayed.
-intro = "Michiel van der Winden"
-name = "Michiel van der Winden"
-description = "Ex-Integration Developer gone AWS Cloud Consultant. Loves refactoring and improving performance. Containerizes everything. Writes about things he finds interesting or funny."
+    avatar = "michiel.png" # put the file in assets folder; also ensure that image has same height and width
+    # Note: image is not rendered if the resource(avatar image) is not found. No error is displayed.
+    intro = "Michiel van der Winden"
+    name = "Michiel van der Winden"
+    description = "Ex-Integration Developer gone AWS Cloud Consultant. Loves refactoring and improving performance. Containerizes everything. Writes about things he finds interesting or funny."
 
-[[params.socialIcons]]
-name = "github"
-url = "https://github.com/MichielVanDerWinden"
+    [[params.socialIcons]]
+        name = "github"
+        url = "https://github.com/MichielVanDerWinden"
 
-[[params.socialIcons]]
-name = "linkedin"
-url = "https://linkedin.com/"
+    [[params.socialIcons]]
+        name = "linkedin"
+        url = "https://linkedin.com/"

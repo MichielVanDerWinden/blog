@@ -1,8 +1,8 @@
 ---
 title: "Golang in AWS Lambda: Optimize those slow starts"
 slug: "golang-lambda-optimize-slow-start"
-date: 2023-11-08T10:08:14+02:00
-draft: false
+date: 9999-01-18T07:12:13+02:00
+draft: true
 categories: ["aws", "development", "golang", "serverless"]
 ---
 

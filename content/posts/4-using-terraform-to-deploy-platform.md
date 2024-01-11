@@ -1,8 +1,8 @@
 ---
 title: "Terraform: Deploy platforms, not resources"
 slug: "terraform-platforms-not-resources"
-date: 2023-11-03T13:33:13+02:00
-draft: false
+date: 9999-01-18T07:12:13+02:00
+draft: true
 categories: ["devops", "iac", "terraform"]
 ---
 

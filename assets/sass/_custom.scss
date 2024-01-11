@@ -3,45 +3,77 @@
     width: 160px;
 }
 
-html.dark li > code, html.dark p > code {
+body {
+    background-color: #e1e1e1;
+}
+
+body, .post-item .post-item-title a {
+    color: black;
+}
+
+.navbar, .wrapper {
+    max-width: calc(1080px - (30px * 2));
+}
+
+html.dark .highlight .chroma, html.dark p>code, html.dark li>code {
+    background-color: #222431;
     color: goldenrod;
 }
 
-p > code {
-    color: red;
+html.dark .chroma .cl {
+    color: goldenrod;
+}
+
+html.dark .chroma .si,
+html.dark .chroma .s2 {
+    color: #00b345 !important;
+}
+
+html.dark .chroma .nv {
+    color: #3a7df0;
+}
+
+.highlight .chroma, p>code, li>code {
+    background-color: #c1c1c1;
+    color: green;
 }
 
 .chroma .cl {
-    color: goldenrod;
+    color: green;
 }
 
-.chroma .si, .chroma .s2 {
-    color: #00b37d !important;
+.chroma .si,
+.chroma .s2 {
+    color: black !important;
 }
 
 .chroma .nv {
-    color: #879300;
+    color: #0a47b1;
 }
 
 .post-meta a.category {
-    background-color: #DDD;
-    color: green;
+    background-color: #cacaca;
+    color: #3a7df0;
     margin-right: 5px;
     margin-bottom: 10px;
     padding: 2px 5px;
     border-radius: 5px;
 }
 
+html.dark .trigger .trigger-container li a:hover,
+html.dark .post-item .post-item-title a:hover,
+html.dark body .navbar .menu .logo:hover .feather-home,
+html.dark .footer_social-icons a:hover svg,
+html.dark .post-meta a.category, html.dark .page-content a {
+    color: #3a7df0;
+}
+
 html.dark .post-meta a.category {
-    background-color: #2d2d2d;
-    color: #879300;
+    background-color: #2e2e2e;
 }
 
-html.dark .post-meta a.category:hover {
-    color: teal;
-}
 
-.post-meta a.category:hover {
+.post-meta a.category:hover, html.dark .page-content a:hover, .page-content a:hover {
     color: #879300;
 }
 
@@ -49,14 +81,16 @@ html.dark .post-meta a.category:hover {
     margin-top: 10px;
 }
 
-.trigger .trigger-container li a:hover, .post-item .post-item-title a:hover, body .navbar .menu .logo:hover .feather-home {
-    color: #879300;
-}
-
-html.dark .trigger .trigger-container li a:hover, html.dark .post-item .post-item-title a:hover, html.dark body .navbar .menu .logo:hover .feather-home, html.dark .footer_social-icons a:hover svg {
-    color: teal;
+.trigger .trigger-container li a:hover,
+.post-item .post-item-title a:hover,
+body .navbar .menu .logo:hover .feather-home {
+    color: #3a7df0;
 }
 
 html.dark .trigger #mode svg g circle {
     color: blue;
+}
+
+p img {
+    display: block;
 }

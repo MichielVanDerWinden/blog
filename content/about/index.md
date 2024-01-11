@@ -2,6 +2,7 @@
 title = 'About Michiel'
 date = 2023-10-16T12:23:13+02:00
 draft = false
+unlisted = true
 +++
 
 ## Michiel

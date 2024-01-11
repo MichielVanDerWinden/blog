@@ -94,3 +94,9 @@ html.dark .trigger #mode svg g circle {
 p img {
     display: block;
 }
+
+@media screen and (max-width: 600px) {
+    .post-item-meta-datetime {
+        display: none;
+    }
+}

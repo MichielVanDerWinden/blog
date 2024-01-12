@@ -44,6 +44,7 @@ ignoreErrors = [
     mainSections = ['posts']
     toc = false
     goToTop = true
+    rssFeedDescription = "full"
 
 [params.author]
     avatar = "michiel.png" # put the file in assets folder; also ensure that image has same height and width

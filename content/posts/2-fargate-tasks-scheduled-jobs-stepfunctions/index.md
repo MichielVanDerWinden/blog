@@ -23,7 +23,7 @@ Another method of running your ECS Tasks based on a scheduler is to use any of t
 ## Built-in task history, visibility and easy manual starts
 When looking for a more "complete" solution for running scheduled tasks, including things like task history overviews, manually starting or restarting services and monitoring the current status of the ECS Task, we can use AWS Step Functions. A Step Function invocation can be managed by Event Bridge as well, meaning it's another drop-in replacement.
 
-![Step Function with ECS: RunTask step](/images/2-fargate-tasks-scheduled-jobs-stepfunctions/step_functions_overview.png)
+![Step Function with ECS: RunTask step](step_functions_overview.png)
 
 Using step functions to start an ECS Task is as simple as adding the `ECS: RunTask` step and setting up the correct inputs for the chosen task. Output of the task (e.g. whether the task started and finished properly) is automatically handled by Step Functions and can be used in any subsequent steps.
 

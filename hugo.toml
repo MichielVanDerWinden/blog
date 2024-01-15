@@ -61,8 +61,6 @@ ignoreErrors = [
         name = "linkedin"
         url = "https://www.linkedin.com/in/michiel-van-der-winden-8512325b/"
 
-
-
 [outputs]
     home = ['html', 'rss']
     section = ['html', 'rss']

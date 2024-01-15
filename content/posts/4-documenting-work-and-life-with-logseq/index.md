@@ -56,3 +56,7 @@ Apart from a minor bug where Logseq in dark mode doesn't show the vertices betwe
 All in all, I think I've finally found a tool that'll work the way I like it to work. I don't feel the need to document everything, but everything I'd like to document can be stored in one single location after which I can link everything together and create coherent, recognizable pieces of data that help me keep track of my day-to-day. Creating an entire history of daily journals including the resulting pages of documentation has never been easier - thanks Logseq!
 
 ... Hopefully they do fix that visual bug with the graphs soon, though 😬
+
+Edit: The apparently fixed it [a few days before writing this blog post in a nightly release](https://github.com/logseq/logseq/commit/facc75f63585dde11d5f9b0fd07901151ee3602c). If only I ran `yay` a bit more often I would've caught it.
+
+![Logseq graph view dark mode fixed](logseq_graph_fixed.png)

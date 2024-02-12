@@ -108,6 +108,10 @@ p img {
     border-radius: 7px;
 }
 
+.page-content a[target="_blank"]::after {
+    display: none;
+}
+
 @media screen and (max-width: 600px) {
     .post-item-meta-datetime {
         display: none;

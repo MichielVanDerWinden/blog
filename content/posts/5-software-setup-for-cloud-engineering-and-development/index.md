@@ -58,6 +58,7 @@ Apart from previously using MacOS, I'd also been using several tools that were M
         * Python
  * Ferdium - Free, open source version of Franz. Used to combine all my messaging tools into one application (Whatsapp, Google Chat, Slack)
  * [Feeds](https://gfeeds.gabmus.org/) - Simple, easy to use RSS reader with the option to show the entire page in-application whilst others only show a title and summary with a link to said post.
+ * [Special mention: WineGUI](https://github.com/winegui/WineGUI) - As I've ran into some problems with runnning Windows-only applications (or some older games that aren't on Steam), I've looked into an easier way of handling Wine setups. WineGUI is a really simple but insanely powerful GUI for Wine.
 
 As you can see, this list is short and simple. I don't need much to do my work - 50% of it is browser based anyways. Of course this will change over time, as needs arise or I find other applications, tools or extensions that are to my liking. Still, I find that I can work quite comfortably with nearly the same efficiency as I had on my Macbook Pro whilst keeping the costs down and making it easily possible to reinstall the system without much downtime.
 
